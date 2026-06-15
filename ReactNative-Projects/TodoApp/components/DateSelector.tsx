@@ -16,7 +16,7 @@ type DateItem = {
 
 const generateDates = (): DateItem[] => {
     const base = new Date(2026, 5, 13);
-    return Array.from({ length: 5 }, (_, i) => {
+    return Array.from({ length: 10 }, (_, i) => {
         const date = new Date(base);
         date.setDate(base.getDate() + i);
         return {

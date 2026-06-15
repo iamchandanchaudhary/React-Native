@@ -4,7 +4,7 @@ const Colors = {
     surfaceLight: "#27272a",
     border: "#3f3f46",
 
-    primary: "#F59E0B",
+    primary: "#006fff",
     primaryMuted: "rgba(245, 158, 11, 0.15)",
 
     textPrimary: "#FAFAFA",
