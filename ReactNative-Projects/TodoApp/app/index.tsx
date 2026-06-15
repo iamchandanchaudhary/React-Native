@@ -1,6 +1,10 @@
+import DateSelector from "@/components/DateSelector";
+import Header from "@/components/Header";
 import Colors from "@/constants/Colors";
+import { TASKS } from "@/constants/Tasks";
 import { StatusBar } from "expo-status-bar";
 import {
+  FlatList,
   StyleSheet,
   Text,
   View
@@ -15,7 +19,22 @@ function Index() {
     <View style={[styles.container, { paddingTop: insets.top }]}>
       <StatusBar style="light" />
 
-      <Text>Hello</Text>
+      <FlatList
+        data={TASKS}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <Text>{item.title}</Text>}
+        ListHeaderComponent={
+          <>
+            {/* Header */}
+            <Header />
+            {/* DateSelector */}
+            <DateSelector />
+            {/* FiltersTabs */}
+          </>
+        }
+        contentContainerStyle={styles.list}
+        showsVerticalScrollIndicator={false}
+      />
     </View>
   );
 }
@@ -26,5 +45,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.background,
+  },
+  list: {
+    paddingBottom: 24
   }
 });
