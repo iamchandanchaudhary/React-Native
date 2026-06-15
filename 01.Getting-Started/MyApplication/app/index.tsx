@@ -1,15 +1,23 @@
-import { Text, View } from "react-native";
+import { useState } from "react";
+import { Alert, Button, Switch, Text, View } from "react-native";
 
-export default function Index() {
+
+function Index() {
+
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+  const pressMe = () => {
+    Alert.alert("Button Pressed");
+  }
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <View>
       <Text>Hello Chandan ✨</Text>
+      <Button title="Click me Now" onPress={pressMe} />
+      <Switch value={isEnabled} onValueChange={toggleSwitch} />
     </View>
   );
 }
+
+export default Index;
