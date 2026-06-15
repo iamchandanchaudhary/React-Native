@@ -2,13 +2,19 @@ import { useState } from "react";
 import {
   Alert,
   Button,
+  FlatList,
   Image,
   Pressable,
   ScrollView,
+  StyleSheet,
   Switch,
   Text,
-  TextInput
+  TextInput,
+  View
 } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+import ImageBackgroundComponent from "./ImageBackground";
 
 function Index() {
 
@@ -24,6 +30,30 @@ function Index() {
   }
 
   const [value, setValue] = useState('');
+
+  const DATA = [
+    {
+      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+      title: 'First Item',
+    },
+    {
+      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+      title: 'Second Item',
+    },
+    {
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      title: 'Third Item',
+    },
+  ];
+
+
+  type ItemProps = { title: string };
+
+  const Item = ({ title }: ItemProps) => (
+    <View style={styles.item}>
+      <Text style={styles.title}>{title}</Text>
+    </View>
+  );
 
   return (
     // View => Used for making a Conrainer (Like: <div>)
@@ -82,7 +112,7 @@ function Index() {
       {/* Image Component */}
       <Image
         source={{
-          uri: "https://reactnative.dev/img/tiny_logo.png"
+          uri: "https://res.cloudinary.com/chandanchaudhary/image/upload/v1776841320/profile_pictures/wd8yzkulcge6whac4ywv.png"
         }}
 
         style={{ height: 100, width: 100, margin: 10 }}
@@ -90,22 +120,56 @@ function Index() {
 
 
       {/* Used to see the use of ScrollView */}
-      {[...Array(30)].map((_, i) => (
+      {/* {[...Array(30)].map((_, i) => (
         <Text key={i}>Chandan Chaudhary {i + 1}</Text>
-      ))}
+      ))} */}
+
+      {/* Wrong Method ❌ (Take High memory) */}
+      {/* {DATA.map((item, index) => (
+        <Text key={index}>{item.title}</Text>
+      ))} */}
+
+      {/* SafeAreaView save from Overlap */}
+      <SafeAreaView>
+        {/* FlatList is Used to render the list of Value (better then Map) */}
+        <FlatList
+          data={DATA}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <Text>{item.title}</Text>}
+        />
+
+        {/* Another Way */}
+        <FlatList
+          data={DATA}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <Item title={item.title} />}
+          horizontal
+        />
+      </SafeAreaView>
+
+      {/* For Background Image */}
+      <ImageBackgroundComponent />
     </ScrollView>
     // </View>
   );
 }
 
-// const styles = StyleSheet.create({
-//   input: {
-//     height: 40,
-//     margin: 12,
-//     borderWidth: 1,
-//     padding: 10,
-//   },
-// });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: 5,
+  },
+  item: {
+    backgroundColor: '#111',
+    padding: 5,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 32,
+    color: '#fff',
+  },
+});
 
 export default Index;
 
