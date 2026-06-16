@@ -1,11 +1,11 @@
-import {
-  View
-} from "react-native";
+import { View } from "react-native";
+import Home from "./screens/Home";
 
 function Index() {
 
   return (
-    <View>
+    <View style={{ flex: 1 }}>
+      <Home />
     </View>
   );
 }
