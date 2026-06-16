@@ -30,6 +30,12 @@ function Index() {
   }
 
   const [value, setValue] = useState('');
+  const [submittedText, setSubmittedText] = useState('');
+
+  const handleSubmit = () => {
+    setSubmittedText(value);
+    setValue('');
+  }
 
   const DATA = [
     {
@@ -85,8 +91,8 @@ function Index() {
 
       <TextInput
         keyboardType="phone-pad"
-        value={value}
-        onChangeText={setValue}
+        // value={value}
+        // onChangeText={setValue}
         style={{ borderWidth: 1, margin: 12 }}
         placeholder="Enter Number"
       />
@@ -94,13 +100,17 @@ function Index() {
       {/* TextArea - There is no such TextArea Component is present, We simply make TaxtInput into TextArea using some attributes */}
       <TextInput
         keyboardType="default"
-        value={value}
-        onChangeText={setValue}
+        // value={value}
+        // onChangeText={setValue}
         style={{ borderWidth: 1, margin: 12 }}
         placeholder="Description"
         multiline
         numberOfLines={5}
+        // readOnly
       />
+
+      <Button title="Submit" onPress={handleSubmit}/>
+      <Text style={{marginTop: 10}}>Input Name: {submittedText ? submittedText : null}</Text>
 
       {/* Pressable - used to set press/click mode on text (events are also aviable) */}
       <Pressable onPress={pressMe} onLongPress={longPressMe}>
