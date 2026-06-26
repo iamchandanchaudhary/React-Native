@@ -10,7 +10,7 @@ const Navbar = () => {
 
             <Button
                 title="Home"
-                onPress={() => router.push('/profile')}
+                onPress={() => router.push('/')}
             />
 
             <Button

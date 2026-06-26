@@ -7,7 +7,7 @@ const Home = () => {
     const router = useRouter();
 
     return (
-        <View style={{display: "flex", gap: 10}}>
+        <View>
             <Navbar />
             <Text style={{margin: 20}}>Home Screen</Text>
         </View>
