@@ -8,7 +8,7 @@ const ActionCard = () => {
     }
 
     return (
-        <View>
+        <View style={styles.container}>
             <Text style={styles.heading}>Action Card</Text>
 
             <Text numberOfLines={4} style={styles.paragraph}>
@@ -30,11 +30,11 @@ const ActionCard = () => {
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    onPress={() => openWebsite("https://www.chandanchaudhary.in/")}
+                    onPress={() => openWebsite("https://www.linkedin.com/in/chandan--chaudhary/")}
                     style={[styles.mainButton, styles.button2]}
                 >
                     <Text style={styles.button2Text}>
-                        Instagram
+                        LinkedIn
                     </Text>
                 </TouchableOpacity>
             </View>
@@ -45,20 +45,29 @@ const ActionCard = () => {
 export default ActionCard
 
 const styles = StyleSheet.create({
+    container: {
+        paddingHorizontal: 20,
+        paddingVertical: 15,
+        backgroundColor: '#fff',
+        marginTop: 20,
+        borderRadius: 10,
+    },
     heading: {
-        color: '#fff',
+        color: '#003566',
         fontSize: 24,
         fontWeight: 'bold',
-        marginTop: 20,
+        textAlign: 'center',
     },
     paragraph: {
-        color: '#fff',
+        color: '#000',
+        textAlign: 'center',
     },
     buttonBox: {
-        marginVertical: 10,
+        marginTop: 15,
         display: 'flex',
         flexDirection: 'row',
-        gap: 10
+        justifyContent: 'center',
+        gap: 20
     },
     mainButton: {
         paddingVertical: 4,
@@ -67,18 +76,18 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     button1: {
-        backgroundColor: '#ff0',
+        backgroundColor: '#c1121f',
     },
     button1Text: {
-        color: '#000',
+        color: '#fff',
         fontWeight: '600',
         textAlign: 'center',
     },
     button2: {
-        backgroundColor: '#f0f',
+        backgroundColor: '#003566',
     },
     button2Text: {
-        color: '#000',
+        color: '#fff',
         fontWeight: '600',
         textAlign: 'center',
     },
