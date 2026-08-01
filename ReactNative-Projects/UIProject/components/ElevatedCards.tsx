@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 24,
         fontWeight: 'bold',
-        marginTop: 40,
+        marginTop: 20,
     },
 
     elevatedCardBox: {

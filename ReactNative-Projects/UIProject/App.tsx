@@ -9,6 +9,8 @@ import {
 import React from 'react'
 import FlatCards from './components/FlatCards';
 import ElevatedCards from './components/ElevatedCards';
+import FancyCard from './components/FancyCard';
+import ActionCard from './components/ActionCard';
 
 const App = () => {
   return (
@@ -16,6 +18,12 @@ const App = () => {
       <ScrollView>
         <FlatCards />
         <ElevatedCards />
+
+        <FancyCard />
+        <FancyCard />
+        <FancyCard />
+
+        <ActionCard />
       </ScrollView>
     </SafeAreaView>
   )
@@ -29,7 +37,6 @@ const styles = StyleSheet.create({
     width: '100%',
     display: 'flex',
     backgroundColor: '#000',
-    // marginTop: 25,
     padding: 8,
   },
 
