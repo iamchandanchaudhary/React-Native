@@ -1,0 +1,3 @@
+To Generate APK (inside git bash)
+cd android
+./gradlew assembleRelease && cd ..
